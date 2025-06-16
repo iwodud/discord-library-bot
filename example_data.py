@@ -1,3 +1,6 @@
+# Optional script to populate the database with example books, users, and loans
+# Useful for local development and testing
+
 import sqlite3
 from datetime import date, timedelta
 

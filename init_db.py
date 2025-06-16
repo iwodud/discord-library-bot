@@ -1,3 +1,6 @@
+# One-time script to initialize the database structure from database/schema.sql
+# Run once at project setup or if you want to reset the database.
+
 import sqlite3
 from pathlib import Path
 

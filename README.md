@@ -58,8 +58,8 @@ discord-library-bot/
 
 ## Technologies Used
 
-- Python 3.x
-- [discord.py](https://github.com/Rapptz/discord.py)
+- Python 32
+- discord.py
 - SQLite (as a temporary local database)
 
 ---

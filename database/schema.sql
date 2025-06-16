@@ -1,3 +1,7 @@
+-- SQL structure definition for the library database
+-- Used by init_db.py to create the initial database schema
+-- Do not run this file on your own
+
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     discord_id TEXT UNIQUE NOT NULL,
