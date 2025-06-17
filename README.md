@@ -46,7 +46,7 @@ python3 bot/main.py
 ```
 discord-library-bot/
 ├── bot/                    # Bot logic: commands, reminders, main entry point
-│   ├── commands.py         # Command handlers for interacting with users
+│   ├── bot_commands.py         # Command handlers for interacting with users
 │   ├── reminders.py        # Logic for sending return reminders
 │   └── main.py             # Entry point to run the bot
 │

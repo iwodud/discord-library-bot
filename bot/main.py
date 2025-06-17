@@ -4,7 +4,8 @@ import logging
 from dotenv import load_dotenv
 import os
 
-import commands
+import bot_commands
+
 
 load_dotenv()
 token = os.getenv('DISCORD_TOKEN')
@@ -15,6 +16,8 @@ intents.message_content = True
 intents.members = True
 
 bot = commands.Bot(command_prefix='!', intents=intents)
+
+bot_commands.register_commands(bot)
 
 
 @bot.event
@@ -28,7 +31,6 @@ async def on_message(message):
         return
     
     await bot.process_commands(message)
-
 
 
 bot.run(token)
