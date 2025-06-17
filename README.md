@@ -24,13 +24,13 @@ pip install -r requirements.txt
 ### 3. Create the database
 
 ```bash
-python3 init_db.py
+python3 tools/init_db.py
 ```
 
 ### 4. (Optional) Add example data
 
 ```bash
-python3 example_data.py
+python3 tools/example_data.py
 ```
 
 ### 5. Run the bot
@@ -45,29 +45,42 @@ python3 bot/main.py
 
 ```
 discord-library-bot/
-├── bot/                # Bot logic: commands, reminders, main entry point
-├── database/           # Database schema and access logic
-├── init_db.py          # Script to initialize SQLite database
-├── example_data.py     # Optional: insert sample books, users, and loans
-├── requirements.txt    # Python dependencies
-├── .env                # Environment variables (e.g., Discord bot token)
-└── README.md           # This file
+├── bot/                    # Bot logic: commands, reminders, main entry point
+│   ├── commands.py         # Command handlers for interacting with users
+│   ├── reminders.py        # Logic for sending return reminders
+│   └── main.py             # Entry point to run the bot
+│
+├── database/               # Database access logic (functions used by the bot)
+│   └── db.py               # Functions to interact with the SQLite database
+│
+├── tools/                  # One-time scripts: schema, database init, test data
+│   ├── schema.sql          # SQL script defining the database schema
+│   ├── init_db.py          # Script to initialize database structure
+│   └── example_data.py     # Optional script to insert example records
+│
+├── library.db              # Local SQLite database (gitignored)
+├── requirements.txt        # Python dependencies
+├── .env                    # Environment variables (e.g., Discord bot token)
+└── README.md               # Project documentation (this file)
+
 ```
 
 ---
 
 ## Technologies Used
 
-- Python 32
+- Python 3.x
 - discord.py
-- SQLite (as a temporary local database)
+- SQLite (as a local development database)
 
 ---
 
 ## Features (in progress)
 
 - [x] SQLite database structure
-- [x] Database init script
+- [x] Database initialization script
+- [x] Script for adding example data
+- [ ] List necessary database functions
 - [ ] Command: borrow a book
 - [ ] Command: return a book
 - [ ] Command: list available books
@@ -78,7 +91,12 @@ discord-library-bot/
 
 ## Notes
 
-- `library.db` is **not committed to the repository**. Each developer creates their own local version using `init_db.py`.
-- In the future, the project may migrate to a production-grade database like MySQL or PostgreSQL.
+- `library.db` is not committed to the repository. Each developer creates their own local version using init_db.py.
+- In the future, the project may migrate to a production-grade database like MySQL.
+- Scripts in tools/ are meant to be run manually once during development and should not be part of normal bot execution.
 
 ---
+
+## License
+
+MIT (or your preferred license)
