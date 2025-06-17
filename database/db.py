@@ -1,12 +1,27 @@
 import sqlite3
 
-def add_book(title, author):
-    conn = sqlite3.connect("library.db")
-    cursor = conn.cursor()
 
+def connect_with_db(func):
+    def wrapper(*args):
+        conn = sqlite3.connect("library.db")
+        cursor = conn.cursor()
+        result = func(cursor, *args)
+        conn.commit()
+        conn.close()
+        return result
+    return wrapper
+
+
+@connect_with_db
+def add_book(cursor, title, author):
     cursor.execute("INSERT INTO books (title, author) VALUES (?, ?)", (title, author))
-    conn.commit()
-    conn.close()
     print('The book has been added to the library.')
 
-add_book('Z mgły', 'Brandon')
+
+@connect_with_db
+def show_all_books(cursor):
+    cursor.execute("SELECT * FROM books")
+    books = cursor.fetchall()
+    for book in books:
+        print(book)
+        
