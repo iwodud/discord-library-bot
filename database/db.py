@@ -14,14 +14,15 @@ def connect_with_db(func):
 
 @connect_with_db
 def add_book(cursor, title, author):
+    '''Adds book into the "books" table'''
     cursor.execute("INSERT INTO books (title, author) VALUES (?, ?)", (title, author))
     print('The book has been added to the library.')
 
 
 @connect_with_db
-def show_all_books(cursor):
+def get_all_books(cursor):
+    '''Shows all books from "books" table'''
     cursor.execute("SELECT * FROM books")
     books = cursor.fetchall()
     for book in books:
         print(book)
-        

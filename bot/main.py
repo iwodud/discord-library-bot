@@ -4,7 +4,7 @@ import logging
 from dotenv import load_dotenv
 import os
 
-import bot_commands
+from bot import bot_commands
 
 
 load_dotenv()
