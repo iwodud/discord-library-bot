@@ -21,8 +21,15 @@ def add_book(cursor, title, author):
 
 @connect_with_db
 def get_all_books(cursor):
-    '''Shows all books from "books" table'''
     cursor.execute("SELECT * FROM books")
-    books = cursor.fetchall()
-    for book in books:
-        print(book)
+    return cursor.fetchall()
+
+
+def format_books(books):
+    if not books:
+        return "Brak książek."
+    return "\n".join(f"{b[0]}. {b[1]} — {b[2]}" for b in books)
+
+if __name__ == "__main__":
+    books = get_all_books()
+    print(format_books(books))

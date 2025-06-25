@@ -1,6 +1,6 @@
 from discord.ext import commands
 
-from database.db import get_all_books
+from database.db import get_all_books, format_books
 
 
 def register_commands(bot):
@@ -12,5 +12,5 @@ def register_commands(bot):
 
     @bot.command()
     async def show_books(ctx):
-        await ctx.send(get_all_books())
-
+        books = get_all_books()
+        await ctx.send(format_books(books))
