@@ -15,8 +15,3 @@ def register_slash_commands(bot: commands.Bot):
         books = get_all_books()
         message = format_books(books)
         await interaction.response.send_message(message)
-    
-
-    @bot.tree.command(name="ping")
-    async def ping(interaction: Interaction):
-        await interaction.response.send_message("pong!")
