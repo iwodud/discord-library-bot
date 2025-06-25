@@ -11,7 +11,6 @@ def register_commands(bot):
     
 
     @bot.command()
-    async def show_all_books(ctx):
-        await ctx.send()
+    async def show_books(ctx):
+        await ctx.send(get_all_books())
 
-get_all_books()
