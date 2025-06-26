@@ -80,21 +80,18 @@ discord-library-bot/
 - [x] SQLite database structure
 - [x] Database initialization script
 - [x] Script for adding example data
-- [ ] List necessary database functions
-- [x] Command: add_book
+- [x] SQL: add_book
+- [ ] command: add_book (admin)
 - [x] Command: show_all_books
-- [ ] Command: search_book
-- [ ] Command: delete a book
-- [ ] Command: borrow a book
-- [ ] Command: return a book
-- [ ] Command: list available books
+- [ ] Command: delete a book (admin)
+- [ ] Command: borrow a book (user)
+- [ ] Command: return a book (user)
 - [ ] Reminder system for due dates
-- [ ] User tracking via Discord ID
 
 ---
 
 ## Notes
 
-- `library.db` is not committed to the repository. Each developer creates their own local version using init_db.py.
+- `library.db` is not committed to the repository. Each developer creates their own local version using tools/init_db.py.
 - In the future, the project may migrate to a production-grade database like MySQL.
 - Scripts in tools/ are meant to be run manually once during development and should not be part of normal bot execution.
